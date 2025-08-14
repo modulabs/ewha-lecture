@@ -1,4 +1,4 @@
-import"./router-CeQoIQrs.js";import{g as rr}from"./react-vendor-c5ypKtDW.js";var pn={exports:{}},Ne={};/**
+import"./router-BPFwq7BQ.js";import{g as rr}from"./react-vendor-c5ypKtDW.js";var pn={exports:{}},Ne={};/**
  * @license React
  * react-jsx-runtime.production.js
  *
