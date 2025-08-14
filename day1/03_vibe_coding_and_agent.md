@@ -1,38 +1,72 @@
+> "1시간 만에, AI 코더로"
+> 
 
-# 3. 바이브 코딩과 AI 에이전트 구축
+이 수업은 여러분을 코딩의 세계로 안내하는 가장 빠르고 혁신적인 길입니다. 단 60분 만에, 비개발자에서 AI를 사용하는 개발자가 되는 것을 직접 경험하게 될 것입니다.
 
-## 바이브 코딩(Vibe Coding)이란?
-- "이런 느낌으로 만들어줘" 와 같이, 자연어를 통해 AI에게 코드 생성을 요청하고, 생성된 코드를 조립하여 빠르게 프로토타입을 만드는 개발 방식입니다.
-- 기존 코딩: 모든 로직을 직접 작성
-- 바이브 코딩: 아이디어와 흐름에 집중, 세부 구현은 AI에게 위임
+![Screen Shot 2025-07-29 at 1.01.18 AM.png](attachment:92b60a31-d598-412d-acd9-361316914bd7:Screen_Shot_2025-07-29_at_1.01.18_AM.png)
 
-## AI 에이전트 구축 실습
-- 목표: "오늘 날씨를 알려주는 AI 에이전트" 만들기
-- 단계:
-  1. 필요한 기능 정의 (날씨 정보 가져오기, 사용자에게 정보 요약)
-  2. 각 기능을 수행하는 파이썬 코드 생성 (AI에게 요청)
-  3. 생성된 코드들을 하나의 스크립트로 결합
+###  수업 목표
 
-### 예시 코드 (Python)
-```python
-import requests
+- AI를 활용한 최신 개발 방식, '바이브 코딩'의 개념을 이해합니다.
+- AI 개발에 필요한 필수 도구를 내 컴퓨터에 직접 설치하고 개발 환경을 구축합니다.
+- 코딩에 대한 막연한 두려움을 없애고, "나도 할 수 있다"는 자신감을 얻습니다.
 
-def get_weather(city):
-    # 이 부분의 코드는 AI에게 요청하여 생성합니다.
-    # "requests 라이브러리를 사용해서 openweathermap API로 서울 날씨를 가져오는 코드 만들어줘"
-    api_key = "YOUR_API_KEY"
-    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
-    response = requests.get(url)
-    return response.json()
+### 사전 준비사항
 
-def summarize_weather(weather_data):
-    # "날씨 json 데이터를 받아서 '서울의 현재 날씨는 [날씨], 온도는 [온도]도 입니다.' 형태로 요약해줘"
-    summary = f"서울의 현재 날씨는 {weather_data['weather'][0]['description']}, 온도는 {round(weather_data['main']['temp'] - 273.15, 2)}도 입니다."
-    return summary
+- 파이썬 설치(미리 안해도 됩니다.)
+    
+    [파이썬을 쓰는 이유](https://www.notion.so/23f137efedf68092a002f5cadd0faa5c?pvs=21)
+    
+    [파이썬 설치 가이드](https://www.notion.so/23e137efedf680cd9a78d9f87122954c?pvs=21)
+    
+- [깃허브 가입](https://github.com)(가급적 해주시면 감사하겠습니다. 어렵다기 보다는 시간이 조금 걸립니다.)
+- [VS Code](https://code.visualstudio.com/Download) 설치
 
-# 에이전트 실행
-city = "Seoul"
-weather_data = get_weather(city)
-summary = summarize_weather(weather_data)
-print(summary)
-```
+### ⏰ 타임라인: 60분 집중 과정
+
+### **[0~15분] 오프닝: "이것이 과거의 방식입니다" (15분)**
+
+- **시연:** 챗봇 코드를 화면에 띄우고, Colab에서 수동으로 실행하는 모습을 빠르게 보여줍니다.
+    
+    https://drive.google.com/file/d/1fVJULCbXW1OdOihF0mtAVf2GDXnB9zA9/view?usp=sharing
+    
+
+- + 질의응답 5분
+
+### [20~25분] 왜 바뀌는가?
+
+https://modulabs.github.io/vibeLecture/
+
+### **[25~45분] 실시간 환경 설정: AI 작업대 함께 만들기 (20분)**
+
+- **메시지:**
+    
+    > "AI에게 일을 시키려면, AI가 일할 수 있는 '작업대'를 만들어줘야 합니다. 사실 이 과정이 초보자들에게는 가장 어렵고, 가장 많이 포기하는 구간입니다. 그래서 지금부터 20분 동안, 저와 함께 여러분의 컴퓨터에 AI 개발 환경을 직접 설치해 보겠습니다."
+    > 
+- **[실습 1] Python 설치 (8분)**
+    - Windows와 macOS 사용자를 나누어 공식 홈페이지에서 다운로드부터 설치, 그리고 터미널에서 `python --version`으로 확인하는 과정까지 함께 진행합니다.
+    - Windows의 `Add to PATH` 옵션을 특히 강조합니다.
+- **[실습 2] Node.js 설치 : Optional**
+    - 공식 홈페이지에서 LTS 버전을 다운로드하고 설치하는 과정을 함께 진행합니다.
+    - 터미널에서 `node -v`와 `npm -v`로 설치를 확인합니다.
+- **[안내] GitHub 가입,  (12분)**
+    - "코드를 저장하고, 다른 사람과 협업하는 필수 도구입니다."
+    - **사전 과제 안내:**
+        - 수업 전에 미리 **GitHub 아이디**를 만들어 오시면 좋습니다.
+        - vscode도 설치해오면 좋습니다. 쉽습니다.
+    - **메시지:** "축하합니다! 이제 여러분의 컴퓨터는 AI와 함께 개발할 모든 준비를 마쳤습니다. 가장 어려운 고비를 넘으셨습니다."
+
+### **[45~55분] 마무리: 여러분도 할 수 있습니다 (10분)**
+
+- 이전 AI 챗봇 튜닝하기
+    - gemini를 쓰는 챗봇으로 바꾸는 방법 - 내 피씨에서는 구글 코랩같은 GPU가 없어서 위 처럼 동작하지 못합니다.
+    - 번역기로 사용하기
+    
+    [️ 나만의 AI 챗봇 업그레이드하기](https://www.notion.so/AI-23f137efedf68059aa04c43726ae2918?pvs=21)
+    
+- **[과제]** 토이프로젝트 만들기
+    - 공룡 게임 만들기
+    - 평소에 만들어 보고 싶었던 것 AI 와 상담하며 만들어보기
+- **[Q&A 및 최종 메시지] (5분)**
+    
+    > "더 이상 코딩에 대한 두려움을 갖지 마세요. 여러분의 아이디어를 AI와 함께 현실로 만드세요. 여러분은 이제 시대를 앞서가는 개발자가 될 준비를 마쳤습니다."
