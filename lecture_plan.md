@@ -7,13 +7,13 @@
 <h3 style="color: white; margin-bottom: 0.5rem;">🗓️ 2024년 전체 학습 여정</h3>
 <p style="color: #e2e8f0; margin-bottom: 2rem;">이화 스타트업 ABC Frontier Class부터 창업까지</p>
 
-<div style="display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 1.5rem; max-width: 600px; margin: 0 auto;">
+<div style="display: grid; grid-template-columns: 1.3fr 2fr 1fr; gap: 1.5rem; max-width: 650px; margin: 0 auto;">
 
 <div style="text-align: center;">
 <div style="width: 20px; height: 20px; background: #ef4444; border-radius: 50%; margin: 0 auto 1rem; border: 3px solid white;"></div>
 <div style="background: white; color: #1f2937; padding: 1rem; border-radius: 8px; font-size: 0.875rem;">
 <div style="font-weight: bold; margin-bottom: 0.5rem;">8월</div>
-<div style="color: #4f46e5; font-weight: 600; font-size: 0.75rem;">이화 스타트업<br/>ABC<br/>Frontier Class</div>
+<div style="color: #4f46e5; font-weight: 600; font-size: 0.75rem;">이화 스타트업<br/>ABC Frontier Class</div>
 </div>
 </div>
 
