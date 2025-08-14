@@ -1,7 +1,9 @@
 {
   "name": "ewha-react",
+  "version": "1.0.0",
+  "description": "이화여자대학교 AI 에이전트 개발 과정 - React 기반 교육용 웹 애플리케이션",
+  "keywords": ["react", "typescript", "education", "lms", "ai", "ewha", "markdown", "vite"],
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

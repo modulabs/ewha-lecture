@@ -23,7 +23,8 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
       setError(null);
       
       try {
-        const response = await fetch(filePath);
+        const fullPath = `${import.meta.env.BASE_URL}${filePath.startsWith('/') ? filePath.slice(1) : filePath}`;
+        const response = await fetch(fullPath);
         if (!response.ok) {
           throw new Error(`Failed to load ${filePath}: ${response.statusText}`);
         }
