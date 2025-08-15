@@ -2,7 +2,7 @@
 
 안녕하세요! 인공지능(AI)은 이제 단순한 도구를 넘어 우리의 삶과 일하는 방식을 근본적으로 바꾸는 '패러다임 전환'을 이끌고 있습니다. 오늘 우리는 그 변화의 최전선에 있는 **'AI 에이전트(AI Agent)'** 에 대해 깊이 있게 탐구해 볼 시간입니다. 영화 속 '자비스'가 단순한 상상이 아닌, 구체적인 기술로 현실화되는 현장을 함께 목격해 보시죠.
 
-### 1. '생각하고 행동하는 AI'의 등장: AI 에이전트란 무엇인가?
+### 1. '생각하고 행동하는 AI'의 등장
 
 우리는 지난 몇 년간 질문에 답하는 '대화형 AI(Conversational AI)'에 익숙해졌습니다. 하지만 AI 에이전트는 여기서 한 걸음 더 나아갑니다.
 
@@ -43,19 +43,19 @@ AI 에이전트가 이처럼 지능적으로 작동할 수 있는 이유는 여�
 
 - **Skywork (스카이워크):** 흩어져 있는 나의 모든 디지털 정보를 하나로 연결하는 **'AI 워크스페이스'**입니다. 구글 드라이브, 노션, 슬랙 등 여러 앱에 흩어진 문서와 데이터를 연동하면, Skywork가 이 모든 것을 학습하여 개인화된 AI 에이전트 역할을 수행합니다. 특히 **프레젠테이션(PPT) 제작에 탁월한 능력**을 보여주는데, "지난 분기 실적 데이터를 바탕으로 투자자용 PPT 초안 만들어줘"라고 명령하면, 연동된 데이터에서 핵심 내용을 추출하고 논리적 흐름에 맞춰 슬라이드 구조를 설계하며, 각 슬라이드의 텍스트 초안까지 자동으로 생성해 줍니다. 단순 파일 검색을 넘어, **데이터를 이해하고 목적에 맞는 결과물까지 창조**해주는 강력한 생산성 도구입니다.
     - **공식 홈페이지:** https://skywork.ai/
-    - **참고 자료 (블로그):** [일 잘하는 사람들의 AI 비서, Skywork 사용 후기](https://www.google.com/search?q=https://blog.naver.com/keep-going-on/223438011234)
+    - **참고 자료 :** [일 잘하는 사람들의 비밀 무기, Skywork AI](https://crediwork.co.kr/3179)
 - **NotebookLM (Google):** 내가 업로드한 논문, 보고서, 강의 노트 등 **방대한 자료를 완벽히 학습한 '개인 연구 조교'**를 만들어줍니다. 자료의 양이 아무리 많아도 핵심 내용을 파악하고, 특정 내용이 어디에 있는지 정확히 찾아주며, 자료들을 비교 분석하여 새로운 인사이트를 제공합니다. 복잡한 주제를 깊이 있게 탐구해야 하는 학생이나 연구원에게 특히 유용합니다.
-    - **공식 홈페이지:** https://notebooklm.google/
-    - **참고 자료 (IT동아):** [나만의 AI, 구글 노트북LM 써보니…“이건 못 참지”](https://www.google.com/search?q=https://www.itdonga.com/news/articleView.html%3Fidxno%3D20240613144131)
+    - **공식 홈페이지:** https://notebooklm.google.com/
+    - **참고 자료 :** [NotebookLM 쓰셔야합니다...](https://yozm.wishket.com/magazine/detail/3178/)
 
 ### 전문 영역의 자동화
 
 - **Devin (Cognition Labs):** "이 웹사이트의 버그를 찾아서 수정해줘"라는 자연어 요청만으로 전체 개발 프로세스(분석, 코드 작성, 테스트, 실행)를 자동화하는 **'세계 최초의 AI 소프트웨어 엔지니어'**입니다. 스스로 개발 환경을 설정하고, 필요한 기술 문서를 학습하며, 문제 해결을 위해 웹 검색까지 수행합니다. 아직 완벽하진 않지만, 개발의 패러다임을 바꿀 잠재력을 보여주며 업계에 큰 충격을 주었습니다.
     - **공식 홈페이지:** https://www.cognition-labs.com/
-    - **참고 자료 (EO Planet):** [코딩 없이 ‘말’로 앱 만드는 시대, AI 개발자 ‘데빈’ 총정리](https://eopla.net/magazines/1218)
+    - **참고 자료 :** [나무위키](https://namu.wiki/w/Devin)
 - **Aidoc (의료):** 병원의 CT, MRI 등 의료 영상을 실시간으로 분석하여 뇌출혈, 폐색전증, 척추 골절 등 **응급 질환의 징후를 즉시 발견하고 의료진에게 경고**하는 AI 솔루션입니다. 수많은 영상 속에서 인간이 놓칠 수 있는 미세한 이상 징후를 3분 이내에 찾아내어 골든타임을 확보하고 환자의 생명을 구하는 데 결정적인 역할을 합니다.
     - **공식 홈페이지:** https://www.aidoc.com/
-    - **참고 자료 (헬로우디디):** [AI, 영상판독 넘어 치료·관리까지···의료 패러다임 바꾼다](https://www.google.com/search?q=https://www.hellodd.com/news/articleView.html%3Fidxno%3D105436)
+    - **참고 자료 :** [AI, 영상판독 넘어 치료·관리까지···의료 패러다임 바꾼다](https://www.google.com/search?q=https://www.hellodd.com/news/articleView.html%3Fidxno%3D105436)
 - **UPS ORION (물류):** '경로 최적화 통합 및 탐색(On-Road Integrated Optimization and Navigation)'의 약자로, 수십만 대의 배송 차량 경로를 실시간 교통 데이터, 배송 요건, 차량 정보 등 1,000페이지 분량의 알고리즘으로 분석하여 **최적의 배송 경로를 동적으로 제공**합니다. 이를 통해 연간 수억 킬로미터의 주행 거리를 단축시키고 천문학적인 비용과 탄소 배출량을 절감합니다.
     - **공식 소개 페이지:** [UPS ORION Backgrounder](https://www.google.com/search?q=https://about.ups.com/us/en/newsroom/press-releases/customer-first/ups-orion-backgrounder.html)
     - **참고 자료 (물류매거진):** [AI가 바꾸는 물류의 미래](https://www.google.com/search?q=https://www.ulogistics.co.kr/test/board.php%3Fboard%3Dmedia%26command%3Dbody%26no%3D109)
