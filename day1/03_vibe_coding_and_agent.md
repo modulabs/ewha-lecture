@@ -1,5 +1,7 @@
 # 1시간 만에 AI 코더 되기: 파이썬으로 시작하는 개발 첫걸음
 
+![바이브 코딩 VS Code 화면](/ewha-react/public/assets/이대수업사진1.png)
+
 > "1시간 만에, AI 코더로"
 
 이 수업은 여러분을 코딩의 세계로 안내하는 가장 빠르고 혁신적인 길입니다. 단 60분 만에, 비개발자에서 AI를 사용하는 개발자가 되는 것을 직접 경험하게 될 것입니다.
@@ -304,7 +306,99 @@ macOS는 기본적으로 구버전의 파이썬이 설치되어 있지만, 우�
 - **이전 AI 챗봇 튜닝하기**
     - Gemini를 쓰는 챗봇으로 바꾸는 방법 (내 PC에서는 Google Colab 같은 GPU가 없어서 똑같이 동작하지는 않습니다.)
     - 번역기로 사용하기
-    - [나만의 AI 챗봇 업그레이드하기 (Notion)](https://www.notion.so/AI-23f137efedf68059aa04c43726ae2918?pvs=21)
+<details><summary><strong>🤖 나만의 AI 챗봇 업그레이드하기</strong></summary>
+수업에서 배운 내용을 바탕으로, 이제 여러분의 AI 챗봇을 직접 업그레이드해 볼 시간입니다! 이 과제를 통해 AI에게 원하는 기능을 요청하고, 코드를 수정하여 나만의 특별한 앱을 만드는 경험을 해보세요.
+
+### 과제 1: 뇌 교체하기 - Ollama에서 Google Gemini로!
+
+우리가 Colab에서 실습한 `Ollama` + `Gemma 3` 조합은 강력하지만, GPU가 없는 우리 개인 PC에서는 실행하기 어렵습니다. 그래서 이번 과제에서는 우리 챗봇의 '뇌'를, 인터넷만 연결되어 있으면 어디서든 쓸 수 있는 구글의 **Gemini API**로 교체해 보겠습니다.
+
+### 📝 **AI에게 이렇게 요청해보세요 (프롬프트 예시)**
+
+> 지금 내 Streamlit 챗봇 코드는 `ChatOllama`를 쓰고 있어. 이걸 구글의 **Gemini API (`ChatGoogleGenerativeAI`)**를 사용하도록 코드를 바꿔줘. **이 코드는 이제 Colab이 아니라 내 컴퓨터에서 `streamlit run app.py` 명령어로 직접 실행할 거야.** `google_api_key`는 Streamlit의 `st.sidebar`에 있는 `st.text_input`으로 받아서 처리하고 싶어. API 키를 입력해야만 챗봇이 동작하게 만들어줘. 모델은 `gemini-2.5-pro`를 사용해줘.
+기존 파일을 고칠 필요는 없고, 새로 내 컴퓨터에서 실행할 수 있게 도와줘.
+> 
+
+### 💡 **힌트: 코드의 어떤 부분이 바뀔까요?**
+
+AI가 코드를 생성하면, 아래와 같이 모델을 초기화하는 부분이 바뀔 거예요.
+
+- **바뀌기 전 (Ollama):**
+    
+    ```
+    from langchain_community.chat_models import ChatOllama
+    
+    llm = ChatOllama(model="gemma:2b")
+    
+    ```
+    
+- **바뀐 후 (Gemini):**
+    
+    ```
+    import streamlit as st
+    from langchain_google_genai import ChatGoogleGenerativeAI
+    
+    # 사이드바에서 API 키 입력받기
+    google_api_key = st.sidebar.text_input("Google API Key를 입력하세요.", type="password")
+    
+    # API 키가 있을 때만 모델 초기화
+    if google_api_key:
+        llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=google_api_key)
+    else:
+        st.info("사이드바에 Google API Key를 입력해주세요.")
+        st.stop() # 앱 실행 중지
+    
+    ```
+    
+
+> Google API Key 발급받는 곳: https://aistudio.google.com/app/apikey
+> 
+
+### 과제 2: 역할 부여하기 - 챗봇을 '실시간 번역기'로!
+
+이제 우리 챗봇은 똑똑한 Gemini의 뇌를 갖게 되었습니다. 이번에는 챗봇에게 새로운 역할을 부여하여, '만능 대화 상대'가 아닌 '특정 임무를 수행하는 전문가'로 만들어 보겠습니다.
+
+### 📝 **AI에게 이렇게 요청해보세요 (프롬프트 예시)**
+
+> 내 Streamlit 챗봇이 이제부터 실시간 번역기 역할을 하도록 코드를 수정해줘. 시스템 프롬프트를 수정해서, 사용자가 어떤 언어로 입력하든 영어와 한국어로 동시에 번역해서 보여주게 만들어줘. 예를 들어 "안녕하세요"라고 입력하면, "영어: Hello / 한국어: 안녕하세요" 와 같이 답변해야 해.
+> 
+
+### 💡 **힌트: 코드의 어떤 부분이 바뀔까요?**
+
+AI의 역할을 정의하는 것은 `ChatPromptTemplate`의 `system` 메시지 부분입니다. 이 부분을 수정해달라고 요청하는 것이 핵심입니다.
+
+- **바뀌기 전 (일반적인 도우미):**
+    
+    ```
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", "You are a helpful assistant."),
+            MessagesPlaceholder(variable_name="messages"),
+        ]
+    )
+    
+    ```
+    
+- **바뀐 후 (번역 전문가):**
+    
+    ```
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            (
+                "system",
+                "You are a translator. Whatever the user enters, you must translate it into both English and Korean. Provide the answer in the format '영어: [English translation] / 한국어: [Korean translation]' without any other explanation."
+            ),
+            MessagesPlaceholder(variable_name="messages"),
+        ]
+    )
+    
+    ```
+    
+
+🎉 이 과제들을 통해 여러분은 AI와 소통하여 원하는 기능을 구현하는 **'바이브 코딩'**의 핵심을 경험하게 될 것입니다. 막히는 부분이 있다면 주저 말고 AI에게 다시 질문하며 문제를 해결해 보세요!
+
+</details>
+
 - **[과제] 토이프로젝트 만들기**
     - 공룡 게임 만들기
     - 평소에 만들어 보고 싶었던 것 AI와 상담하며 만들어보기
