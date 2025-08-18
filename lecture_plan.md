@@ -20,7 +20,7 @@
 <div style="text-align: center;">
 <div style="width: 20px; height: 20px; background: #10b981; border-radius: 50%; margin: 0 auto 1rem; border: 3px solid white;"></div>
 <div style="background: white; color: #1f2937; padding: 1rem; border-radius: 8px; font-size: 0.875rem;">
-<div style="font-weight: bold; margin-bottom: 0.5rem;">9월 ~ 11월</div>
+<div style="font-weight: bold; margin-bottom: 0.5rem;">9월 ~ 10월</div>
 <div style="color: #059669; font-weight: 600; font-size: 0.75rem;">모두의연구소<br/>LAB 활동 + 멘토링</div>
 </div>
 </div>
@@ -116,7 +116,7 @@
 </div>
 
 <div style="background: #f0f8ff; padding: 1rem; border-radius: 8px; text-align: center;">
-<h4>🎤 모두콘 발표</h4>
+<a href="https://moducon.modulabs.co.kr"><h4>🎤 모두콘 발표</h4></a>
 <p>12월 13일 대규모 컨퍼런스 발표 기회</p>
 </div>
 
