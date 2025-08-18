@@ -16,14 +16,14 @@
 ### 준비물
 - **파이썬** (수업 중에 함께 진행하므로 미리 안해도 됩니다.)
 - **[깃허브 가입](https://github.com)** (가급적 미리 가입해 주세요.)
-- **[VS Code](https://code.visualstudio.com/Download) 설치**
-    - [VSCode에서 파이썬 개발 환경 설정하기 (블로그)](https://velog.io/@compy/VSCode%EC%97%90%EC%84%9C-Python-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
+- **[VS Code 설치](https://code.visualstudio.com/Download)**
+    - [VSCode에서 파이썬 개발 환경 설정하기 (블로그)](https://flex-link.co.kr/5)
 
 
 ### **"이것이 과거의 방식입니다"**
 
 - **시연:** 챗봇 코드를 화면에 띄우고, Colab에서 수동으로 실행하는 모습을 빠르게 보여줍니다.
-    - [시연용 챗봇 코드](https://drive.google.com/file/d/1fVJULCbXW1OdOihF0mtAVf2GDXnB9zA9/view?usp=sharing)
+    - [시연용 챗봇 코드(Colab)](https://drive.google.com/file/d/1fVJULCbXW1OdOihF0mtAVf2GDXnB9zA9/view?usp=sharing)
 
 ### **왜 바뀌는가?**
 기존의 개발공부가 하기 어려웠던 이유는 IT지식, 컴퓨터 과학을 이해해야하는 영역과 이를 컴퓨터의 언어로 만드는 영역 두가지를 모두 해내야했기 때문입니다. 개념을 공부하는 것도 쉽지 않겠지만, 컴퓨터의 언어를 익히는 것은 사람의 말과 다르게 문법을 틀리면 전혀 동작하지 않기 때문에 많은 사람들이 이에서 발걸음을 돌리곤 합니다. 하지만 이러한 학습 방식이 개선될 수 있는 시작점이 바로 바이브 코딩입니다. 
