@@ -2,7 +2,7 @@
 # 1. 온보딩 및 퍼실리테이션
 
 ## 과정 소개
-- 안녕하세요! 이화여자대학교 AI 에이전트 개발 과정에 오신 것을 환영합니다.
+- 안녕하세요! 이화 스타트업 ABC Frontier Class AI 에이전트 개발 과정에 오신 것을 환영합니다.
 - 본 과정은 최신 AI 기술을 활용하여 직접 아이디어를 현실화하고, 자동화된 워크플로우를 구축하는 경험을 제공하는 것을 목표로 합니다.
 
 ## 기대하는 결과물
@@ -18,6 +18,6 @@
 ## 아이스브레이킹: SEMI-SWOT 분석
 - 간단한 자기소개와 함께, 자신의 강점(Strength)과 약점(Weakness)을 파악하고 이번 과정을 통해 얻고 싶은 기회(Opportunity)를 생각해보는 시간입니다.
 - 아래 조별 링크에 접속하여 자신의 SWOT을 작성해주세요.
-- **1조:** [바로가기](https://1drv.ms/p/c/b3f82470cf6b0312/ES_M9gN5nRNFqoItK8RxW-0B0AYEb9Dqr0Ntduz80-pYEQ?e=UAqE1d&wdLOR=cC3BADC42-0B67-7C4E-A400-F269546677B2)
-- **2조:** [바로가기](https://1drv.ms/p/c/b3f82470cf6b0312/EbfFcqxYkUdHisieTFHp90sBnzPYsO8NpiYcWkHBfFYaog?e=kyxzYI)
-- **3조:** [바로가기](https://1drv.ms/p/c/b3f82470cf6b0312/EWoinA0VYwhEufPfT_Ode3wBiXln7IfprCFRkT6sP-EgDQ?e=QFFjRw)
+- **해:** [바로가기](https://1drv.ms/p/c/b3f82470cf6b0312/ES_M9gN5nRNFqoItK8RxW-0B0AYEb9Dqr0Ntduz80-pYEQ?e=UAqE1d&wdLOR=cC3BADC42-0B67-7C4E-A400-F269546677B2)
+- **달:** [바로가기](https://1drv.ms/p/c/b3f82470cf6b0312/EbfFcqxYkUdHisieTFHp90sBnzPYsO8NpiYcWkHBfFYaog?e=kyxzYI)
+- **별:** [바로가기](https://1drv.ms/p/c/b3f82470cf6b0312/EWoinA0VYwhEufPfT_Ode3wBiXln7IfprCFRkT6sP-EgDQ?e=QFFjRw)
