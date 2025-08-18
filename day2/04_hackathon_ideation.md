@@ -27,3 +27,8 @@
 - 해결 방안 (Solution)
 - 주요 기능
 - 예상 기술 스택
+
+
+### 과제 진행
+- 배운 내용을 기반으로 구현해볼 최종 프로젝트 구상 및 제출(구글docx)
+- https://docs.google.com/document/d/1FJHjwESYEizg1J_pt5Sf2KYZlmF8KMzNrak5GGesA-g/edit?tab=t.0
