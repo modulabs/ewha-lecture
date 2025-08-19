@@ -4,6 +4,11 @@ export interface SidebarItem {
   path?: string;
   children?: SidebarItem[];
   isExpanded?: boolean;
+  locked?: boolean;
+  adminOnly?: boolean;
+  isDivider?: boolean;
+  hasAssignment?: boolean; // 과제가 있는 날짜인지 표시
+  assignmentDate?: string; // 과제 날짜 (YYYY-MM-DD 형식)
 }
 
 export interface CourseDay {

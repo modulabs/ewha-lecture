@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { Loader2, AlertCircle } from 'lucide-react';
 import { CodeBlock } from '../CodeBlock/CodeBlock';
+import { ContentDetailModal } from '../ContentDetailModal/ContentDetailModal';
 
 interface MarkdownRendererProps {
   filePath: string;
@@ -16,6 +18,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
   const [content, setContent] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [modalContent, setModalContent] = useState<{title: string; content: string} | null>(null);
 
   useEffect(() => {
     const loadMarkdown = async () => {
@@ -29,7 +32,22 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
           throw new Error(`Failed to load ${filePath}: ${response.statusText}`);
         }
         const text = await response.text();
-        setContent(text);
+        let processedText = text.replace(/\*\*'([^']+)'\*\*/g, '**$1**');
+        
+        // details 태그를 커스텀 컴포넌트로 교체
+        let detailsIndex = 0;
+        processedText = processedText.replace(
+          /<details>\s*<summary>(.*?)<\/summary>([\s\S]*?)<\/details>/g,
+          (_, title, content) => {
+            // HTML 태그를 제거하여 깨끗한 제목을 만들기
+            const cleanTitle = title.replace(/<[^>]*>/g, '').trim();
+            const cleanContent = content.trim();
+            const currentIndex = detailsIndex++;
+            return `<div data-details-index="${currentIndex}" data-details-title="${cleanTitle.replace(/"/g, '&quot;')}" data-details-content="${encodeURIComponent(cleanContent)}"></div>`;
+          }
+        );
+        
+        setContent(processedText);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load content');
       } finally {
@@ -64,102 +82,121 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
     );
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    // Ctrl+A (또는 Cmd+A on Mac)가 눌렸을 때 현재 마크다운 영역만 선택
+    if ((e.ctrlKey || e.metaKey) && e.key === 'a') {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const selection = window.getSelection();
+      const range = document.createRange();
+      const markdownContainer = e.currentTarget;
+      
+      range.selectNodeContents(markdownContainer);
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+    }
+  };
+
   return (
-    <div className={`markdown-content ${className}`}>
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        components={{
-          // Custom component overrides
-          h1: ({ children }) => (
-            <h1 className="text-3xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-2">
-              {children}
-            </h1>
-          ),
-          h2: ({ children }) => (
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4 mt-8">
-              {children}
-            </h2>
-          ),
-          h3: ({ children }) => (
-            <h3 className="text-xl font-medium text-gray-800 mb-3 mt-6">
-              {children}
-            </h3>
-          ),
-          p: ({ children }) => (
-            <p className="text-gray-700 mb-4 leading-relaxed">
-              {children}
-            </p>
-          ),
-          ul: ({ children }) => (
-            <ul className="list-disc list-inside mb-4 text-gray-700">
-              {children}
-            </ul>
-          ),
-          ol: ({ children }) => (
-            <ol className="list-decimal list-inside mb-4 text-gray-700">
-              {children}
-            </ol>
-          ),
-          li: ({ children }) => (
-            <li className="mb-2">
-              {children}
-            </li>
-          ),
-          code: ({ className, children, ...props }) => {
-            const match = /language-(\w+)/.exec(className || '');
-            const language = match ? match[1] : 'text';
-            const isInline = !match;
-            
-            if (isInline) {
+    <>
+      <div 
+        className={`prose max-w-none ${className} focus:outline-none`}
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+      >
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeRaw]}
+          components={{
+          code: ({className, children, ...props}: any) => {
+            const inline = !className;
+            const match = /language-(\w+)/.exec(className || '')
+            if (!inline && match) {
               return (
-                <code className="bg-blue-50 text-blue-600 px-2 py-1 rounded-md text-sm font-medium border border-blue-200 font-mono" {...props}>
+                <CodeBlock
+                  language={match[1]}
+                >
+                  {String(children).replace(/\n$/, '')}
+                </CodeBlock>
+              )
+            }
+            return (
+              <code {...props} className={className}>
+                {children}
+              </code>
+            )
+          },
+          a: ({ href, children, ...props }: any) => {
+            // 외부 링크는 새 탭에서 열기
+            if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
+              return (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  {...props}
+                >
                   {children}
-                </code>
+                </a>
+              );
+            }
+            // 내부 링크는 그대로
+            return <a href={href} {...props}>{children}</a>;
+          },
+          div: ({ children, ...props }: any) => {
+            // data-details-* 속성을 가진 div인지 확인
+            const detailsTitle = props['data-details-title'];
+            const detailsContent = props['data-details-content'];
+            
+            if (detailsTitle && detailsContent) {
+              const decodedContent = decodeURIComponent(detailsContent);
+              
+              const handleClick = () => {
+                setModalContent({
+                  title: detailsTitle,
+                  content: decodedContent
+                });
+              };
+
+              return (
+                <div 
+                  className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-4 cursor-pointer hover:from-blue-100 hover:to-indigo-100 transition-all duration-200 shadow-sm hover:shadow-md"
+                  onClick={handleClick}
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="font-semibold text-blue-800 flex items-center gap-2">
+                      <span className="text-blue-600">📋</span>
+                      {detailsTitle}
+                    </div>
+                    <div className="text-blue-600">
+                      <svg className="w-5 h-5 transform transition-transform hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                  <p className="text-blue-600 text-sm mt-2 opacity-80">클릭하여 자세히 보기</p>
+                </div>
               );
             }
             
-            return (
-              <CodeBlock language={language}>
-                {String(children).replace(/\n$/, '')}
-              </CodeBlock>
-            );
-          },
-          blockquote: ({ children }) => (
-            <blockquote className="border-l-4 border-blue-500 pl-4 italic text-gray-600 mb-4">
-              {children}
-            </blockquote>
-          ),
-          table: ({ children }) => (
-            <div className="overflow-x-auto mb-4">
-              <table className="w-full border-collapse border border-gray-300">
-                {children}
-              </table>
-            </div>
-          ),
-          th: ({ children }) => (
-            <th className="border border-gray-300 px-4 py-2 text-left bg-gray-100 font-semibold">
-              {children}
-            </th>
-          ),
-          td: ({ children }) => (
-            <td className="border border-gray-300 px-4 py-2">
-              {children}
-            </td>
-          ),
-          a: ({ href, children }) => (
-            <a 
-              href={href} 
-              className="text-blue-600 hover:text-blue-800 underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {children}
-            </a>
-          ),
+            // 일반 div는 그대로 처리
+            return <div {...props}>{children}</div>;
+          }
         }}
-      >
-        {content}
-      </ReactMarkdown>
-    </div>
+        >
+          {content}
+        </ReactMarkdown>
+      </div>
+      
+      {modalContent && (
+        <ContentDetailModal
+          isOpen={!!modalContent}
+          onClose={() => setModalContent(null)}
+          title={modalContent.title}
+          content={modalContent.content}
+        />
+      )}
+    </>
   );
 };

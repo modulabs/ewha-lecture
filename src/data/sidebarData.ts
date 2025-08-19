@@ -9,6 +9,8 @@ export const sidebarData: SidebarItem[] = [
   {
     id: 'day1',
     title: 'Day 1 (8/19 화)',
+    hasAssignment: true,
+    assignmentDate: '2025-08-19',
     children: [
       {
         id: 'day1-01',
@@ -37,7 +39,7 @@ export const sidebarData: SidebarItem[] = [
       },
       {
         id: 'day1-06',
-        title: '6. 바이브 코딩을 위한 IT 기술 배우기',
+        title: '6. 바이브 코딩을 위한 IT 지식 배우기',
         path: '/day1/06_it_knowledge_for_vibe_coding'
       }
     ]
@@ -45,6 +47,9 @@ export const sidebarData: SidebarItem[] = [
   {
     id: 'day2',
     title: 'Day 2 (8/20 수)',
+    locked: true, // 해제하려면 이 줄을 삭제하세요
+    hasAssignment: true,
+    assignmentDate: '2025-08-20',
     children: [
       {
         id: 'day2-01',
@@ -81,6 +86,9 @@ export const sidebarData: SidebarItem[] = [
   {
     id: 'day3',
     title: 'Day 3 (8/21 목)',
+    locked: true, // 해제하려면 이 줄을 삭제하세요
+    hasAssignment: true,
+    assignmentDate: '2025-08-21',
     children: [
       {
         id: 'day3-01',
@@ -113,5 +121,41 @@ export const sidebarData: SidebarItem[] = [
         path: '/day3/06_closing'
       }
     ]
+  },
+  // 관리자 메뉴 구분선
+  {
+    id: 'admin-divider',
+    title: '🛡️ 관리자 메뉴',
+    isDivider: true,
+    adminOnly: true
+  },
+  {
+    id: 'admin-dashboard',
+    title: '📊 대시보드',
+    path: '/admin',
+    adminOnly: true
+  },
+  {
+    id: 'admin-students',
+    title: '👥 학생 관리',
+    adminOnly: true,
+    children: [
+      {
+        id: 'admin-students-list',
+        title: '📋 명단 조회',
+        path: '/admin/students'
+      },
+      {
+        id: 'admin-students-upload',
+        title: '📤 CSV 업로드',
+        path: '/admin/students/upload'
+      }
+    ]
+  },
+  {
+    id: 'admin-assignments',
+    title: '📝 과제 관리',
+    path: '/admin/assignments',
+    adminOnly: true
   }
 ];
