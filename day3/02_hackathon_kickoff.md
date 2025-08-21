@@ -11,6 +11,7 @@
 ## 팀 빌딩
 - 아이디어 발표와 피드백을 바탕으로 최종적으로 함께할 팀을 구성합니다.
 - 아직 팀이 없는 분들은 서로의 아이디어나 기술 관심사를 바탕으로 자유롭게 팀을 구성합니다.
+- [희망 팀 선정을 위한 시트](https://docs.google.com/spreadsheets/d/1JeWKgdJoY6HPreqRg2x9iJnZ3pzcfTLyUVvRiA5ljVo/edit?usp=sharing)
 - 어느정도의 균형(학습 목적)을 위해 강사가 팀 빌딩에 관여합니다.
 
 ## 그라운드 룰
